@@ -1,0 +1,17 @@
+{
+  "name": "flapper-news",
+  "authors": [
+    "kmy06 <camille.apheceix@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
