@@ -1,3 +1,5 @@
 {
 	"directory":"vendor/assets/bower_components"
 }
+
+// modifie le chemin par defaut de bower_components
