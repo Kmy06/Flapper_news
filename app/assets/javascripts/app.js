@@ -6,13 +6,19 @@ angular.module('flapperNews', ['ui.router', 'templates'])
 .config([
 '$stateProvider',
 '$urlRouterProvider',
-function($stateProvider, $urlRouterProvider){
+function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('home', {
-			url: '/home',
-			templateUrl: 'home/_home.html',
-			controller: 'MainCtrl'
-		})
+      url: '/home',
+      templateUrl: 'home/_home.html',
+      controller: 'MainCtrl',
+// resolve - {Object.<string, function>=} Grace à la propriété resolve on s'assure qu'a nimporte quel mmt l'état home est rentré
+      resolve: {
+        postPromise: ['posts', function(posts){
+        return posts.getAll();
+      }]
+}
+    })
 //le nouvel état posts affichera les commentaires associer à un post
 		.state('posts', {
 //id entre crochet signifie que c un paramètre d'itinéraire qui sera mis à la disposition de notre contrôleur

@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   root to: 'application#angular'
 # resources crée 6 diff routes : GET /posts/new POST /posts GET /posts GET /posts/edit PATCH/PUT /posts DELETE /posts
-  resources :posts, only: [:create,  :index, :show] do
-      resources :comments, only: [:show, :create] do
-        member do
-          put '/upvote' => 'comments#upvote'
-        end
-      end
+  resources :posts, only: [:create, :index, :show] do
+    resources :comments, only: [:show, :create] do
       member do
-        put '/upvote' => 'posts#upvote'
+        put '/upvote' => 'comments#upvote'
       end
     end
+
+    member do
+      put '/upvote' => 'posts#upvote'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
