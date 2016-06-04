@@ -24,7 +24,12 @@ function($stateProvider, $urlRouterProvider) {
 //id entre crochet signifie que c un paramètre d'itinéraire qui sera mis à la disposition de notre contrôleur
 			url: '/posts/{id}',
 			templateUrl: 'posts/_posts.html',
-			controller: 'PostsCtrl'
+			controller: 'PostsCtrl',
+			resolve: {
+  				post: ['$stateParams', 'posts', function($stateParams, posts) {
+    				return posts.get($stateParams.id);
+ 				 }]
+			}			
 		});
 //oterwise sert à rediriger les routes non spécifiées
 	$urlRouterProvider.otherwise('home');
