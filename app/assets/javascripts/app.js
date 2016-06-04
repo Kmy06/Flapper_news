@@ -1,7 +1,7 @@
 //parce que nous ajoutons un module externe nous avons besoin d'inclure une dépendance
 //ici ui-router est utilisé à la place du standar ngRoute
 // le module template vient de du gem angular-rails-templates*
-angular.module('flapperNews', ['ui.router', 'templates'])
+angular.module('flapperNews', ['ui.router', 'templates', 'Devise'])
 //config va installer l'état 'state' de home
 .config([
 '$stateProvider',

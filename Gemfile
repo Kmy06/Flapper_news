@@ -20,6 +20,9 @@ gem 'responders', '~> 2.2'
 
 gem 'angular_rails_csrf', '~> 1.0', '>= 1.0.4'
 
+# Devise est un excellent système d'authentification fait pour Rails qui nous permet de mettre facilement des fonctionnalités de l'utilisateur dans notre projet.
+gem 'devise', '~> 3.5', '>= 3.5.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
