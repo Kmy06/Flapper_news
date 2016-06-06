@@ -9,16 +9,16 @@ angular.module('flapperNews', ['ui.router', 'templates', 'Devise'])
 function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('home', {
-      url: '/home',
-      templateUrl: 'home/_home.html',
-      controller: 'MainCtrl',
+      		url: '/home',
+      		templateUrl: 'home/_home.html',
+      		controller: 'MainCtrl',
 // resolve - {Object.<string, function>=} Grace à la propriété resolve on s'assure qu'a nimporte quel mmt l'état home est rentré
-      resolve: {
-        postPromise: ['posts', function(posts){
-        return posts.getAll();
-      }]
-}
-    })
+      		resolve: {
+        		postPromise: ['posts', function(posts){
+        		return posts.getAll();
+      			}]
+			}
+    	})
 //le nouvel état posts affichera les commentaires associer à un post
 		.state('posts', {
 //id entre crochet signifie que c un paramètre d'itinéraire qui sera mis à la disposition de notre contrôleur
@@ -30,7 +30,28 @@ function($stateProvider, $urlRouterProvider) {
     				return posts.get($stateParams.id);
  				 }]
 			}			
-		});
+		})
+		/*.state('login', {
+		    url: '/login',
+		    templateUrl: 'auth/_login.html',
+		    controller: 'AuthCtrl',*/
+// Pour pas que lorsque l'utilisateur est connecté register et login s'affiche on utilise le callback onEnter
+      			/*onEnter: ['$state', 'Auth', function($state, Auth) {
+	        		Auth.currentUser().then(function (){
+	          		$state.go('home');
+	        		})
+      			}]
+    	})
+	    .state('register', {
+		    url: '/register',
+		    templateUrl: 'auth/_register.html',
+		    controller: 'AuthCtrl',
+      			onEnter: ['$state', 'Auth', function($state, Auth) {
+	        		Auth.currentUser().then(function (){
+	          		$state.go('home');
+	        		})
+      			}]
+	    });*/
 //oterwise sert à rediriger les routes non spécifiées
 	$urlRouterProvider.otherwise('home');
-	}])
+}])

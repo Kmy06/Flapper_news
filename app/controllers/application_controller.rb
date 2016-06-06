@@ -5,8 +5,12 @@ class ApplicationController < ActionController::Base
 	# pour que les controllers répondent au format json
 	# apres on utlisera respond_with pour que nos actions retournent du json à la fin
 	respond_to :json
-	def angular
-		render 'layouts/application'
-	end
 
+  
+
+  def angular
+    render 'layouts/application'
+  end
+
+  
 end
