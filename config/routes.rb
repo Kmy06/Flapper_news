@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+   devise_for :users
   root to: 'application#angular'
 # resources crée 6 diff routes : GET /posts/new POST /posts GET /posts GET /posts/edit PATCH/PUT /posts DELETE /posts
   resources :posts, only: [:create, :index, :show] do
